@@ -27,7 +27,7 @@ public class brief_java {
                 numbers[i]= sc.nextDouble();
 
             }
-            sc.nextLine();
+
 
 
 
@@ -100,9 +100,9 @@ double result=0;
 
     static double Division(double []numbers) {
 
-        double result =0;
-        for(double num : numbers){
-            result=result/num;
+        double result =numbers[0];
+        for(int i=1 ;i< numbers.length;i++){
+            result=result/numbers[i];
         }
 
         return result;
