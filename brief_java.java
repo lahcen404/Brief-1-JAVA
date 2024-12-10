@@ -4,128 +4,98 @@ public class brief_java {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("How many operation you want to do");
         int NOp = sc.nextInt();
 
 
-
-
         for (int i = 0; i < NOp; i++) {
-
-
-            System.out.println("How many numbers you want to calcul");
-            int NbrCal = sc.nextInt();
+            System.out.println("=====================");
             System.out.println("Choose an operation:");
-            System.out.println("1-Addition\n2-Subtraction\n3-Multiplication\n4-Division");
+            System.out.println("1-Addition\n2-Subtraction\n3-Multiplication\n4-Division\n5-Power\n6-Square\n0-Exit\n");
             int symbol = sc.nextInt();
             sc.nextLine();
+            int a = 0, b = 0;
 
-            double[] numbers = new double[NbrCal];
+            if(symbol==6) {
 
-            System.out.println("Entre the Numbers !!");
-            for(i=0 ;i<NbrCal;i++){
-                numbers[i]= sc.nextDouble();
-
+                System.out.println("Entre  number");
+                a = sc.nextInt();
             }
-            sc.nextLine();
+            else{
+                System.out.println("Entre  1st number");
+                 a = sc.nextInt();
+                System.out.println("Entre  2nd number");
+                 b = sc.nextInt();
+                sc.nextLine();
+            }
 
 
 
 
             switch (symbol) {
                 case 1:
-                    System.out.println("Addition is " + Addition(numbers));
+                    System.out.println("Addition of " + a + " + " + b + " is : " + Addition(a, b));
                     break;
-              case 2:
-                    System.out.println(" Substraction is " + Subtraction(numbers));
+                case 2:
+                    System.out.println("Substraction of " + a + " - " + b + " is : " + Subtraction(a, b));
                     break;
-                 case 3:
-                    System.out.println(" Multiplication of numbers  is " + Multiplication(numbers));
+                case 3:
+                    System.out.println("Multiplication of " + a + " * " + b + " is : " + Multiplication(a, b));
                     break;
-
                 case 4:
-                    if (numbers[0] != 0) {
-                        System.out.println(" Division of numbers is  " + Division(numbers));
-                    } else {
-                        System.out.println("Erreur !! Devision par 0 ");
-                    }
-                    break;
-                    /*
-                case "%":
                     if (b != 0) {
-                        System.out.println("Reste de " + a + " / " + b + " est : " + Modulo(a, b));
+                        System.out.println("Division of " + a + " / " + b + " is : " + Division(a, b));
                     } else {
-                        System.out.println("Erreur !! Devision par 0 ");
+                        System.out.println("Erreur !! Devision by 0 ");
                     }
                     break;
-                case "^":
-                    System.out.println("Power of " + a + " ^ " + b + " is :" + Power(a, b));
+                case 5:
+                    System.out.println("Power of " + a + " * " + b + " is : " + Power(a, b));
                     break;
-                case "square":
-                    System.out.println("square of " + a + " is :" + Racine(a));
+                case 6:
+                    System.out.println("Square of " + a + " is : " + Square(a));
                     break;
-*/
+                case 0:
+                    System.out.println("Exitting");
+                    return;
                 default:
                     System.out.println("Invalid symbol");
                     break;
             }
-
         }
     }
 
-    static double Addition(double []numbers) {
-double result=0;
-   for(double num : numbers){
-       result=result+num;
-   }
-        return result;
+    static int Addition(int a, int b) {
+        return a + b;
     }
 
-    static double Subtraction(double []numbers) {
-        double result = numbers[0]; // start with first nnumber
-        for (int i = 1; i < numbers.length; i++) {
-            result = result -numbers[i];
-        }
-        return result;
 
+    static int Subtraction(int a, int b) {
+        return a - b;
     }
 
-    static double Multiplication(double []numbers) {
-    double result=1;
-    for(double num : numbers){
-        result=result*num;
-    }
-        return result;
+
+    static int Multiplication(int a, int b) {
+        return a * b;
     }
 
-    static double Division(double []numbers) {
 
-        double result =0;
-        for(double num : numbers){
-            result=result/num;
-        }
-
-        return result;
-    }
-/*
-    static double Modulo(double []numbers) {
-        return a % b;
+    static int Division(int a, int b) {
+        return a / b;
     }
 
-    static double Power(double []numbers) {
+
+
+    static double Power(double base, double expo) {
         int result = (int) Math.pow(base, expo);
         return result;
     }
-
-    static double Racine(double []numbers) {
+    static double Square(double a) {
         if (a < 0) {
             System.out.println("Error !! Square root of a negative number");
             return -1;
         }
         return Math.sqrt(a);
     }
-*/
-
-
-
 }
