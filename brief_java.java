@@ -16,23 +16,23 @@ public class brief_java {
             int symbol = sc.nextInt();
             sc.nextLine();
 
-            int a = 0, b = 0;
+            double a = 0, b = 0;
 
             if (symbol == 7 || symbol==6) {
 
                 System.out.println("Enter a number:");
-                a = sc.nextInt();
+                a = sc.nextDouble();
             } else if (symbol >= 1 && symbol <= 5) {
 
                 System.out.println("Enter the 1st number:");
-                a = sc.nextInt();
+                a = sc.nextDouble();
                 System.out.println("Enter the 2nd number:");
-                b = sc.nextInt();
+                b = sc.nextDouble();
             } else if (symbol == 0) {
                 System.out.println("Exiting...");
                 return;
             } else {
-                System.out.println("Invalid operation. Please try again.");
+                System.out.println("Invalid operation !!!");
                 continue;
             }
 
@@ -50,7 +50,7 @@ public class brief_java {
                     if (b != 0) {
                         System.out.println("Division of " + a + " / " + b + " is: " +String.format("%.2f", Division(a, b)));
                     } else {
-                        System.out.println("Error! Division by zero is undefined.");
+                        System.out.println("Error! Division by zero ");
                     }
                     break;
                 case 5:
@@ -60,36 +60,38 @@ public class brief_java {
                     if (a >= 0) {
                         System.out.println("Square root of " + a + " is: " + String.format("%.2f",SquareRoot(a)));
                     } else {
-                        System.out.println("Error! Cannot calculate the square root of a negative number.");
+                        System.out.println("Error! Cannot calculate  square root of a negative number");
                     }
                     break;
                 case 7:
 
-                    System.out.println("Factorial of " + a + " is: " + String.format("%.2f",Factorial(a)));
+                    System.out.println("Factorial of " + a + " is: " + Factorial((int)a));
 
                     break;
+                case 0:
+                    System.out.println("Exiting!!!");
                 default:
-                    System.out.println("Invalid operation.");
+                    System.out.println("Invalid operation!!!");
                     break;
             }
         }
         sc.close();
     }
 
-    static int Addition(int a, int b) {
+    static double Addition(double a, double b) {
         return a + b;
     }
 
-    static int Subtraction(int a, int b) {
+    static double Subtraction(double a, double b) {
         return a - b;
     }
 
-    static int Multiplication(int a, int b) {
+    static double Multiplication(double a, double b) {
         return a * b;
     }
 
-    static double Division(int a, int b) {
-        return (double) a / b;
+    static double Division(double a, double b) {
+        return  a / b;
     }
 
     static double Power(double base, double expo) {
@@ -100,8 +102,8 @@ public class brief_java {
         return Math.sqrt(a);
     }
 
-    static double Factorial (double a){
-        double result=1;
+    static int Factorial (int a){
+        int result=1;
         for(int i=1;i<=a;i++){
            result=result*i;
         }return result;
