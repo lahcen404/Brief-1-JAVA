@@ -28,18 +28,16 @@ public class brief_java {
 
                 System.out.println("Enter a number:");
                 a = sc.nextDouble();
+
             } else if (symbol >= 1 && symbol <= 5) {
 
-                System.out.println("Enter the 1st number:");
-                a = sc.nextDouble();
-                System.out.println("Enter the 2nd number:");
-                b = sc.nextDouble();
+               double[] numbers = Numbers();
+                a=numbers[0];
+                b=numbers[1];
+
             } else if (symbol == 0) {
                 System.out.println("Exiting...");
                 return;
-            } else {
-                System.out.println("Invalid operation !!!");
-                continue;
             }
 
             switch (symbol) {
@@ -60,7 +58,8 @@ public class brief_java {
                     System.out.println("==================================\n");
                     break;
                 case 4:
-                    if (b != 0) {
+                do{
+                    if (b != 0 ) {
                         System.out.println("==================================");
                         System.out.println("Division of " + a + " / " + b + " is: " +String.format("%.2f", Division(a, b)));
                         System.out.println("==================================\n");
@@ -68,8 +67,9 @@ public class brief_java {
                         System.out.println("==================================");
                         System.out.println("Error! Division by zero ");
                         System.out.println("==================================\n");
+                        Numbers();
 
-                    }
+                    }}while(b == 0);
                     break;
                 case 5:
                     System.out.println("==================================");
@@ -99,7 +99,7 @@ public class brief_java {
                     System.out.println("==================================");
                     System.out.println("Exiting!!! , Good Bye!!");
                     System.out.println("==================================\n");
-
+                break;
                 default:
                     System.out.println("Invalid operation!!!");
                     break;
@@ -138,5 +138,14 @@ public class brief_java {
         for(int i=1;i<=a;i++){
             result=result*i;
         }return result;
+    }
+    static double[] Numbers (){
+        Scanner sc=new Scanner(System.in);
+        double [] numbers =new double[2];
+        System.out.println("Enter the 1st number:");
+        numbers[0] = sc.nextDouble();
+        System.out.println("Enter the 2nd number:");
+        numbers[1] = sc.nextDouble();
+        return numbers;
     }
 }
