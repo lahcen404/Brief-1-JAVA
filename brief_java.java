@@ -58,18 +58,23 @@ public class brief_java {
                     System.out.println("==================================\n");
                     break;
                 case 4:
+
                 do{
-                    if (b != 0 ) {
-                        System.out.println("==================================");
-                        System.out.println("Division of " + a + " / " + b + " is: " +String.format("%.2f", Division(a, b)));
-                        System.out.println("==================================\n");
-                    } else {
+                    if (b == 0 ) {
                         System.out.println("==================================");
                         System.out.println("Error! Division by zero ");
                         System.out.println("==================================\n");
-                        Numbers();
+                        double[] nums = Numbers();
+                        a = nums[0];
+                        b = nums[1];
+                    }  }while(b == 0);
 
-                    }}while(b == 0);
+                        System.out.println("==================================");
+                        System.out.println("Division of " + a + " / " + b + " is: " +String.format("%.2f", Division(a, b)));
+                        System.out.println("==================================\n");
+
+
+
                     break;
                 case 5:
                     System.out.println("==================================");
@@ -144,8 +149,10 @@ public class brief_java {
         double [] numbers =new double[2];
         System.out.println("Enter the 1st number:");
         numbers[0] = sc.nextDouble();
+        sc.nextLine();
         System.out.println("Enter the 2nd number:");
         numbers[1] = sc.nextDouble();
+        sc.nextLine();
         return numbers;
     }
 }
