@@ -1,11 +1,13 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class brief_java {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("======================CALCULATOR=====================\n");
+        System.out.println("\n======================CALCULATOR=====================\n");
 
        /* System.out.println("---   How many operations do you want to perform?  ---");
         int NOp = sc.nextInt();
@@ -13,32 +15,35 @@ public class brief_java {
 
         for (int i = 0; i < NOp; i++) {*/
         int symbol;
+
         do {
+
+
             System.out.println("=====================");
             System.out.println("Choose an operation:");
             System.out.println("=====================\n");
 
-            System.out.println("1-Addition\n2-Subtraction\n3-Multiplication\n4-Division\n5-Power\n6-Square Root\n7-Factorial\n0-Exit\n");
+            System.out.println("1-Addition(+) \n2-Subtraction (-)\n3-Multiplication (×)\n4-Division (÷)\n5-Power (ˆ)\n6-Square Root (√)\n7-Factorial (!)\n0-Exit\n");
             symbol = sc.nextInt();
             sc.nextLine();
 
             double a = 0, b = 0;
-
+        
             if (symbol == 7 || symbol==6) {
 
-                System.out.println("Enter a number:");
-                a = sc.nextDouble();
+                    System.out.println("Enter a number:");
+                    a = sc.nextDouble();
+
 
             } else if (symbol >= 1 && symbol <= 5) {
+
 
                double[] numbers = Numbers();
                 a=numbers[0];
                 b=numbers[1];
 
-            } else if (symbol == 0) {
-                System.out.println("Exiting...");
-                return;
-            }
+        }
+
 
             switch (symbol) {
                 case 1:
@@ -144,15 +149,24 @@ public class brief_java {
             result=result*i;
         }return result;
     }
-    static double[] Numbers (){
-        Scanner sc=new Scanner(System.in);
-        double [] numbers =new double[2];
-        System.out.println("Enter the 1st number:");
-        numbers[0] = sc.nextDouble();
-        sc.nextLine();
-        System.out.println("Enter the 2nd number:");
-        numbers[1] = sc.nextDouble();
-        sc.nextLine();
+    static double[] Numbers() {
+        Scanner sc = new Scanner(System.in);
+        double[] numbers = new double[2];
+
+        for (int i = 0; i < numbers.length; i++) {
+            while (true) {
+                try {
+                    System.out.printf("Enter number %d:%n", i + 1);
+                    numbers[i] = Double.parseDouble(sc.nextLine());
+                    break; // exit the loop if input is valid
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a valid number.");
+                }
+            }
+        }
+
         return numbers;
     }
+
+
 }
